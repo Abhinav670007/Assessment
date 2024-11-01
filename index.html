@@ -109,14 +109,14 @@
         }
 
         function toggleSort() {
-    isSortedAsc = !isSortedAsc;
-    const sortedUsers = [...users].sort((a, b) => {
-        const dateA = new Date(a.joinedDate);
-        const dateB = new Date(b.joinedDate);
-        return isSortedAsc ? dateA - dateB : dateB - dateA;
-    });
-    displayUsers(sortedUsers);
-}
+            isSortedAsc = !isSortedAsc;
+            const sortedUsers = [...users].sort((a, b) => {
+                const dateA = new Date(a.joinedDate);
+                const dateB = new Date(b.joinedDate);
+                return isSortedAsc ? dateA - dateB : dateB - dateA;
+            });
+            displayUsers(sortedUsers);
+        }
 
         fetchData();
     </script>
