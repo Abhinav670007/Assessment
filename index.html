@@ -19,31 +19,31 @@
         <!-- Sidebar Section -->
         <aside class="w-64 bg-white shadow-md px-6 py-8 hidden lg:block">
             <div class="flex items-center mb-8">
-                <img src="https://s3-alpha-sig.figma.com/img/05a8/19c3/67411690aa8c050192d3c313d1614713?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DGVu9SvlZyH-1fIaAZD~AphxxX1uNTdL~UriBkcHYpb7BaA2hQDl7eHtS0R4D4nctx7eVpwJEkmm1IKwoCwQgyLlwzOh4Wu4W3SGKxR-b6dmbPHemWsmxJYdUs-mUCmv6atHxr0OVGBFcRvRfxqSY-HracchIEgZ~StyNxUY9YzEL3whpPLX~ytTn~oxZkNBV1ozcB73dviNDWyMlKz0CuyeCiWlZ0v7a879sLBBeX3mrv1v0paxIvDXH7~-ShHZNcpfEapm~VgAqgIbhwKnAqGuGTSjfBDyGtK8tHOpM8fIqVrvUHckBFqeWk0OPYVBl2Ro6Kgby4DCx29XYp57bg__"
+                <img src="./images/bankicon.png"
                     alt="Logo" class="w-8 h-8 mr-2">
                 <span class="text-2xl font-bold">BankDash</span>
             </div>
 
         </aside>
 
-        <!-- Main Content Section -->
         <div class="flex-1">
             <div class="container mx-auto p-4">
-                <!-- Header Section -->
+            <!-- Header -->
                 <div class="flex items-center justify-between mb-6">
                     <div class="flex items-center lg:hidden">
-                        <img src="https://s3-alpha-sig.figma.com/img/05a8/19c3/67411690aa8c050192d3c313d1614713?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DGVu9SvlZyH-1fIaAZD~AphxxX1uNTdL~UriBkcHYpb7BaA2hQDl7eHtS0R4D4nctx7eVpwJEkmm1IKwoCwQgyLlwzOh4Wu4W3SGKxR-b6dmbPHemWsmxJYdUs-mUCmv6atHxr0OVGBFcRvRfxqSY-HracchIEgZ~StyNxUY9YzEL3whpPLX~ytTn~oxZkNBV1ozcB73dviNDWyMlKz0CuyeCiWlZ0v7a879sLBBeX3mrv1v0paxIvDXH7~-ShHZNcpfEapm~VgAqgIbhwKnAqGuGTSjfBDyGtK8tHOpM8fIqVrvUHckBFqeWk0OPYVBl2Ro6Kgby4DCx29XYp57bg__"
+                        <img src="./images/bankicon.png"
                             alt="Logo" class="w-8 h-8 mr-2">
                         <span class="text-2xl font-bold">BankDash</span>
                     </div>
                     <div class="flex items-center space-x-5 ml-auto">
+                        <i class="fa-solid fa-gear" style="color: #1667e9;"></i>
                             <i class="fa-regular fa-bell" style="color: #ed5b0c;"></i>
-                        <img src="https://s3-alpha-sig.figma.com/img/4596/79f6/c0c1f4c69f7c2368440bfc85e940b511?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=OwnpW0Bk0mwFBuHhCR04UNEno6A2quUDgOg7Mm4rqdig6emVJkuZwxCkZzavnLfZhQ1sZDY26TS19y3YpmGR8tYnjBki3Flh08FSGtPwehSzfrzGz37EgMx85Iy721Wn~CVUcbaeeOcRoxxQRHbgHpBlbS430Cy70I~OJRCaKmryMhRk1E1Eax~vJyhtwfGDKgLj3cMSn9DcKapBHTHpY8kV9Q~BB~QMKgl-DVmUuSFOHzjjtkrN1pkfkr5I~rW4h8QExpDzJm9KcGzHnMK6pgWnVq44WTqxVvX61xFE1qARrDRUfkMzmSbhfIaCC9PZ~h-MrnuG04MRI0maIz2Hcg__"
+                        <img src="./images/user1.png"
                             alt="User Profile" class="w-8 h-8 rounded-full">
                     </div>
                 </div>
 
-                <!-- Page Title and Search/Sort Bar -->
+                
                 <h1 class="text-3xl font-semibold mb-4">Users</h1>
                 <div class="flex flex-col sm:flex-row items-center justify-center md:gap-5 mb-6 space-y-4 sm:space-y-0">
                     <input type="text" id="searchInput" placeholder="Search for something" oninput="filterUsers()"
@@ -55,74 +55,15 @@
                 </div>
 
 
-                <!-- User Cards Section -->
+                <!-- Cards Section -->
                 <div id="userCards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
             </div>
         </div>
     </div>
-
-    <script>
-        let users = [];
-        let isSortedAsc = true;
-
-        async function fetchData() {
-            const response = await fetch("data.json");
-            users = await response.json();
-            displayUsers(users);
-        }
-
-        function displayUsers(userList) {
-            const userCards = document.getElementById("userCards");
-            userCards.innerHTML = "";
-
-            userList.forEach(user => {
-                const userCard = document.createElement("div");
-                userCard.className = "bg-white p-6 rounded-lg shadow-md";
-
-                userCard.innerHTML = `
-                    <div class="flex items-center mb-4">
-                        <img src="${user.image}" alt="${user.name}" class="w-16 h-16 rounded-full mr-4">
-                        <div class="text-left">
-                            <h3 class="text-xl font-semibold">${user.name}</h3>
-                            <p class="text-gray-500 text-sm">${user.age} / ${user.gender}</p>
-                        </div>
-                    </div>
-                    <p class="text-black mb-2"><strong>Occupation:</strong> ${user.occupation}</p>
-                    <p class="text-black mb-2"><strong>Location:</strong> ${user.location}</p>
-                    <p class="text-gray-500 text-sm mb-4 font-bold">${user.joinedDate}</p>
-                    <div class="text-left">
-                        <p class="font-semibold">User Traits</p>
-                        <div class="flex flex-wrap gap-2 mt-2">
-                            ${user.traits.map(trait => `<span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm">${trait}</span>`).join('')}
-                        </div>
-                    </div>
-                `;
-
-                userCards.appendChild(userCard);
-            });
-        }
-
-        function filterUsers() {
-            const query = document.getElementById("searchInput").value.toLowerCase();
-            const filteredUsers = users.filter(user => user.name.toLowerCase().includes(query));
-            displayUsers(filteredUsers);
-        }
-
-        function toggleSort() {
-            isSortedAsc = !isSortedAsc;
-            const sortedUsers = [...users].sort((a, b) => {
-                const dateA = new Date(a.joinedDate);
-                const dateB = new Date(b.joinedDate);
-                return isSortedAsc ? dateA - dateB : dateB - dateA;
-            });
-            displayUsers(sortedUsers);
-        }
-
-        fetchData();
-    </script>
+   
+    <script src="script.js"></script>
+ 
 </body>
-
-
 </html>
 
 
