@@ -13,7 +13,7 @@ function displayUsers(userList) {
 
     userList.forEach(user => {
         const userCard = document.createElement("div");
-        userCard.className = "bg-white p-6 rounded-lg shadow-md";
+        userCard.className = "bg-white p-6 rounded-lg shadow-md hover:bg-gray-200";
 
         userCard.innerHTML = `
             <div class="flex items-center mb-4">
@@ -25,7 +25,8 @@ function displayUsers(userList) {
             </div>
             <p class="text-black mb-2"><strong>Occupation:</strong> ${user.occupation}</p>
             <p class="text-black mb-2"><strong>Location:</strong> ${user.location}</p>
-            <p class="text-gray-500 text-sm mb-4 font-bold">${user.joinedDate}</p>
+            <p class="text-black mb-2"><strong>JoinedDate:</strong> ${user.joinedDate}</p>
+            <p class="text-gray-500 text-sm mb-4 font-bold">${user.description}</p>
             <div class="text-left">
                 <p class="font-semibold">User Traits</p>
                 <div class="flex flex-wrap gap-2 mt-2">
