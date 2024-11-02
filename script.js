@@ -47,14 +47,29 @@ function filterUsers() {
   
   //sorting function
   
+  let sortOrder = "asc"; 
+
+  function toggleDropdown() {
+      const dropdown = document.getElementById("sortDropdown");
+      dropdown.classList.toggle("hidden");
+  }
+
+  function setSortOrder(order) {
+      sortOrder = order;
+      document.getElementById("sortButton").textContent = 
+          order === "asc" ? "Sort: Ascending" : "Sort: Descending";
+      
+      sortUsers();
+      toggleDropdown(); // Closing the dropdown function
+  }
+
   function sortUsers() {
-    const sortOrder = document.getElementById("sortOrder").value;
-    const sortedUsers = [...users].sort((a, b) => {
-        const dateA = new Date(a.joinedDate);
-        const dateB = new Date(b.joinedDate);
-        return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
-    });
-    displayUsers(sortedUsers);
-}
+      const sortedUsers = [...users].sort((a, b) => {
+          const dateA = new Date(a.joinedDate);
+          const dateB = new Date(b.joinedDate);
+          return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
+      });
+      displayUsers(sortedUsers);
+  }
 
 fetchData();

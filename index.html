@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="shortcut icon" href="./images/metalogo.svg">
+    <link rel="shortcut icon" href="./images/metalogo.svg">
     <title>UserList</title>
 </head>
 
@@ -18,8 +19,7 @@
         <!-- Sidebar Section -->
         <aside class="w-64 bg-white shadow-md px-6 py-8 hidden lg:block">
             <div class="flex items-center mb-8">
-                <img src="./images/bankicon.png"
-                    alt="Logo" class="w-8 h-8 mr-2">
+                <img src="./images/bankicon.png" alt="Logo" class="w-8 h-8 mr-2">
                 <span class="text-2xl font-bold">BankDash</span>
             </div>
 
@@ -27,43 +27,50 @@
 
         <div class="flex-1">
             <div class="container mx-auto p-4">
-            <!-- Header -->
+                <!-- Header -->
                 <div class="flex items-center justify-between mb-6">
                     <div class="flex items-center lg:hidden">
-                        <img src="./images/bankicon.png"
-                            alt="Logo" class="w-8 h-8 mr-2">
+                        <img src="./images/bankicon.png" alt="Logo" class="w-8 h-8 mr-2">
                         <span class="text-2xl font-bold">BankDash</span>
                     </div>
                     <div class="flex items-center space-x-5 ml-auto">
                         <i class="fa-solid fa-gear" style="color: #1667e9;"></i>
-                            <i class="fa-regular fa-bell" style="color: #ed5b0c;"></i>
-                        <img src="./images/user1.png"
-                            alt="User Profile" class="w-8 h-8 rounded-full">
+                        <i class="fa-regular fa-bell" style="color: #ed5b0c;"></i>
+                        <img src="./images/user1.png" alt="User Profile" class="w-8 h-8 rounded-full">
                     </div>
                 </div>
 
-                
-                <div class="flex flex-col sm:flex-row sm:justify-center md:gap-5 mb-6 space-y-4 sm:space-y-0 items-center">
-                    <h1 class="text-3xl font-semibold mb-4 text-left sm:text-center">Users</h1>
-                    
+
+                <div
+                    class="flex flex-col sm:flex-row sm:justify-center md:gap-5 mb-6 space-y-4 sm:space-y-0 items-center">
+                    <h1 class="text-3xl font-semibold mb-4 text-left">Users</h1>
+
                     <div class="relative w-full sm:w-2/3 lg:w-1/2 mx-auto">
                         <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                             <i class="fa-solid fa-magnifying-glass" style="color: #0c5288;"></i>
                         </span>
-                
+
                         <input type="text" id="searchInput" placeholder="Search for something" oninput="filterUsers()"
-                            class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            class="w-full p-3 pl-10 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
-                
-                    <select id="sortOrder" onchange="sortUsers()"
-                        class="w-full sm:w-auto px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="asc">Sort by Joined Date: Ascending</option>
-                        <option value="desc">Sort by Joined Date: Descending</option>
-                    </select>
+
+                    <div class="relative w-full sm:w-auto ">
+                        <button id="sortButton" onclick="toggleDropdown()"
+                            class="flex items-center justify-center w-full sm:w-auto px-4 py-2 md:w-36 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <i class="fa-solid fa-sort mr-2" style="color: #0c5288;"></i>
+                            Sort
+                        </button>
+
+                        <!-- Dropdown section-->
+                        <div id="sortDropdown"
+                            class="absolute right-0 mt-2 w-36 bg-white border border-gray-200 rounded-lg shadow-lg hidden">
+                            <button onclick="setSortOrder('asc')"
+                                class="w-full text-left px-4 py-2 hover:bg-gray-100">Ascending</button>
+                            <button onclick="setSortOrder('desc')"
+                                class="w-full text-left px-4 py-2 hover:bg-gray-100">Descending</button>
+                        </div>
+                    </div>
                 </div>
-                
-                
-                
 
 
                 <!-- Cards Section -->
@@ -71,16 +78,9 @@
             </div>
         </div>
     </div>
-   
+
     <script src="script.js"></script>
- 
+
 </body>
+
 </html>
-
-
-
-
-
-
-
-
