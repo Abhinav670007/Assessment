@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,15 +43,27 @@
                 </div>
 
                 
-                <h1 class="text-3xl font-semibold mb-4">Users</h1>
-                <div class="flex flex-col sm:flex-row items-center justify-center md:gap-5 mb-6 space-y-4 sm:space-y-0">
-                    <input type="text" id="searchInput" placeholder="Search for something" oninput="filterUsers()"
-                        class="w-full sm:w-2/3 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <button onclick="toggleSort()"
-                        class="w-full sm:w-auto px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        Sort
-                    </button>
+                <div class="flex flex-col sm:flex-row sm:justify-center md:gap-5 mb-6 space-y-4 sm:space-y-0 items-center">
+                    <h1 class="text-3xl font-semibold mb-4 text-left sm:text-center">Users</h1>
+                    
+                    <div class="relative w-full sm:w-2/3 lg:w-1/2 mx-auto">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                            <i class="fa-solid fa-magnifying-glass" style="color: #0c5288;"></i>
+                        </span>
+                
+                        <input type="text" id="searchInput" placeholder="Search for something" oninput="filterUsers()"
+                            class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                
+                    <select id="sortOrder" onchange="sortUsers()"
+                        class="w-full sm:w-auto px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="asc">Sort by Joined Date: Ascending</option>
+                        <option value="desc">Sort by Joined Date: Descending</option>
+                    </select>
                 </div>
+                
+                
+                
 
 
                 <!-- Cards Section -->

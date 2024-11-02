@@ -47,12 +47,12 @@ function filterUsers() {
   
   //sorting function
   
-function toggleSort() {
-    isSortedAsc = !isSortedAsc;
+  function sortUsers() {
+    const sortOrder = document.getElementById("sortOrder").value;
     const sortedUsers = [...users].sort((a, b) => {
         const dateA = new Date(a.joinedDate);
         const dateB = new Date(b.joinedDate);
-        return isSortedAsc ? dateA - dateB : dateB - dateA;
+        return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
     });
     displayUsers(sortedUsers);
 }
